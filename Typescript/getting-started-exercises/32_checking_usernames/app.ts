@@ -13,6 +13,6 @@ for (let i = 0; i < current_users.length; i++) {
       );
       continue;
     }
-    console.log(`This username is available!`);
   }
+  console.log(`This username is available!`);
 }
