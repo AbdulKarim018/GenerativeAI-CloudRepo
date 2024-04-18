@@ -65,7 +65,7 @@ async function sayGoodbye() {
 
 let exit = false;
 let isWelcomeMessageDisplayed = false;
-const todos: string[] = [];
+let todos: string[] = [];
 async function main() {
   clear();
 
@@ -89,6 +89,7 @@ async function main() {
         choices: [
           { name: "Add a new todo", value: "add" },
           { name: "View all todos", value: "view" },
+          { name: "Delete a todo", value: "delete" },
           { name: "Exit", value: "exit" },
         ],
       },
@@ -110,7 +111,7 @@ async function main() {
       case "view": {
         clear();
         if (todos.length === 0) {
-          console.log(chalk.yellow("You have no todos!"));
+          log(chalk.yellow("You have no todos!"));
           await inquirer.prompt([
             {
               type: "input",
@@ -120,7 +121,7 @@ async function main() {
           ]);
           break;
         }
-        console.log(chalk.yellow("Your Todos:"));
+        log(chalk.yellow("Your Todos:"));
         todos.forEach((todo, index) => {
           console.log(`${index + 1}. ${todo}`);
         });
@@ -131,6 +132,29 @@ async function main() {
             message: "Press Enter to go back",
           },
         ]);
+        break;
+      }
+      case "delete": {
+        clear();
+        if (todos.length === 0) {
+          console.log(chalk.yellow("You have no todos to delete!"));
+          await inquirer.prompt([
+            {
+              type: "input",
+              name: "dummy",
+              message: "Press Enter to go back",
+            },
+          ]);
+          break;
+        }
+        const { todosToDelete } = await inquirer.prompt({
+          name: "todosToDelete",
+          type: "checkbox",
+          choices: todos,
+        });
+
+        todos = todos.filter((todo) => !todosToDelete.includes(todo));
+        console.log(chalk.green("Todos deleted successfully!"));
         break;
       }
       case "exit": {
