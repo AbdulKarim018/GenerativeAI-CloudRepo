@@ -23,7 +23,7 @@ function Header() {
   return (
     <MaxWidthWrapper
       element="header"
-      className="flex items-center justify-between py-4"
+      className="flex items-center justify-between py-4 max-md:px-2"
     >
       <h2 className="text-2xl font-semibold">Soudemy</h2>
       <nav className="flex items-center gap-4 max-md:hidden">
@@ -226,10 +226,10 @@ function ContactSection() {
     <div className="w-full bg-secondary py-4 pb-16">
       <MaxWidthWrapper className="flex flex-col items-center gap-4 text-center">
         <p className="pt-6 uppercase">grab array for best price today</p>
-        <p className="text-4xl font-semibold">
+        <p className="text-4xl font-semibold max-md:text-2xl">
           Start now and turn your online business into a profitable route.
         </p>
-        <div className="flex w-1/4 flex-col gap-4">
+        <div className="flex flex-col gap-4 md:w-1/4">
           <input
             type="email"
             placeholder="Enter your email"
