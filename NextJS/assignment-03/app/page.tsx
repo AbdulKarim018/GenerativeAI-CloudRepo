@@ -225,11 +225,13 @@ function ContactSection() {
   return (
     <div className="w-full bg-secondary py-4 pb-16">
       <MaxWidthWrapper className="flex flex-col items-center gap-4 text-center">
-        <p className="pt-6 uppercase">grab array for best price today</p>
-        <p className="text-4xl font-semibold">
+        <p className="pt-6 uppercase max-md:text-sm">
+          grab array for best price today
+        </p>
+        <p className="text-4xl font-semibold max-md:text-2xl">
           Start now and turn your online business into a profitable route.
         </p>
-        <div className="flex w-1/4 flex-col gap-4">
+        <div className="flex w-3/4 flex-col gap-4 md:w-2/4">
           <input
             type="email"
             placeholder="Enter your email"
