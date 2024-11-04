@@ -9,10 +9,12 @@ export const metadata: Metadata = {
 
 const libre_badoni = Libre_Bodoni({
   weight: ["400", "700"],
+  subsets: ["latin"],
 });
 
 const rye = Rye({
   weight: "400",
+  subsets: ["latin"],
 });
 
 export default function RootLayout({
